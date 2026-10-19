@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Versículos Bíblicos Católicos</title>
+  <style>
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-light: #F3E5AB;
+      --gold-dark: #AA7C11;
+      --bg-black: #0d0d0d;
+      --card-bg: #161616;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: #e0e0e0;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-image: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      border: 2px solid var(--gold-primary);
+      border-radius: 12px;
+      padding: 40px 30px;
+      max-width: 550px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), inset 0 0 15px rgba(0,0,0,0.8);
+      position: relative;
+    }
+
+    .cross {
+      font-size: 2.8rem;
+      color: var(--gold-primary);
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+
+    h1 {
+      color: var(--gold-primary);
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+    .subtitle {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 25px;
+      opacity: 0.8;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+      margin: 20px 0;
+    }
+
+    .verse-box {
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .verse-text {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #ffffff;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .verse-ref {
+      color: var(--gold-primary);
+      font-weight: bold;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+    }
+
+    .category-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 12px;
+      border: 1px solid var(--gold-dark);
+      border-radius: 15px;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      color: #000000;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      width: 100%;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #f5d77f 0%, var(--gold-primary) 100%);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="cross">✝</div>
+    <h1>Palabra del Señor</h1>
+    <div class="subtitle">Sagradas Escrituras - Iglesia Católica</div>
+
+    <div class="divider"></div>
+
+    <div class="verse-box">
+      <p id="verseText" class="verse-text">"Presiona el botón para recibir un versículo de la Biblia."</p>
+      <p id="verseRef" class="verse-ref"></p>
+      <span id="verseCategory" class="category-tag" style="display: none;"></span>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn" onclick="mostrarNuevoVersiculo()">Pedir Versículo</button>
+
+    <footer>
+      <i>"Tu palabra es antorcha para mis pasos, luz en mi sendero." (Salmo 119, 105)</i>
+    </footer>
+  </div>
+
+  <script>
+    const versiculosCatolicos = [
+      {
+        texto: "Porque tanto amó Dios al mundo que dio a su Hijo único, para que todo el que crea en él no perezca, sino que tenga vida eterna.",
+        cita: "San Juan 3, 16",
+        categoria: "Amor Divino"
+      },
+      {
+        texto: "El Señor es mi pastor, nada me falta. En verdes praderas me hace reposar, hacia fuentes tranquilas me conduce.",
+        cita: "Salmo 23, 1-2",
+        categoria: "Confianza"
+      },
+      {
+        texto: "Todo lo puedo en aquel que me conforta.",
+        cita: "Filipenses 4, 13",
+        categoria: "Fortaleza"
+      },
+      {
+        texto: "No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios. Te fortalezco, te auxilio, te sostengo con mi diestra victoriosa.",
+        cita: "Isaías 41, 10",
+        categoria: "Consuelo"
+      },
+      {
+        texto: "Vengan a mí todos los que están cansados y agobiados, que yo los aliviaré.",
+        cita: "San Mateo 11, 28",
+        categoria: "Descanso"
+      },
+      {
+        texto: "Proclama mi alma la grandeza del Señor, se alegra mi espíritu en Dios mi salvador.",
+        cita: "San Lucas 1, 46-47 (Magníficat)",
+        categoria: "Virgen María"
+      },
+      {
+        texto: "Pidan y se les dará; busquen y encontrarán; llamen y se les abrirá.",
+        cita: "San Mateo 7, 7",
+        categoria: "Oración"
+      },
+      {
+        texto: "Sabemos que Dios dispone todas las cosas para el bien de los que lo aman.",
+        cita: "Romanos 8, 28",
+        categoria: "Esperanza"
+      },
+      {
+        texto: "Yo soy el camino, la verdad y la vida. Nadie va al Padre sino por mí.",
+        cita: "San Juan 14, 6",
+        categoria: "Fe"
+      },
+      {
+        texto: "Que el Señor te bendiga y te proteja; haga brillar su rostro sobre ti y te conceda su favor; les muestre su rostro y te conceda la paz.",
+        cita: "Números 6, 24-26",
+        categoria: "Bendición"
+      },
+      {
+        texto: "El amor es paciente, es servicial; el amor no tiene envidia, no hace alarde, no es engreído.",
+        cita: "1 Corintios 13, 4",
+        categoria: "Caridad"
+      },
+      {
+        texto: "Hagan todo lo que él les diga.",
+        cita: "San Juan 2, 5",
+        categoria: "Virgen María"
+      },
+      {
+        texto: "Les dejo la paz, mi paz les doy; no se la doy como la da el mundo. No se turbe su corazón ni se acobarde.",
+        cita: "San Juan 14, 27",
+        categoria: "Paz"
+      },
+      {
+        texto: "Confía en el Señor de todo corazón y no te apoyes en tu propia prudencia.",
+        cita: "Proverbios 3, 5",
+        categoria: "Sabiduría"
+      },
+      {
+        texto: "La paz les dejo, mi paz les doy. Que no se turbe su corazón ni cobren miedo.",
+        cita: "San Juan 14, 27",
+        categoria: "Paz"
+      }
+    ];
+
+    let ultimoIndice = -1;
+
+    function mostrarNuevoVersiculo() {
+      let nuevoIndice;
+      // Evitar que se repita el mismo versículo dos veces seguidas
+      do {
+        nuevoIndice = Math.floor(Math.random() * versiculosCatolicos.length);
+      } while (nuevoIndice === ultimoIndice && versiculosCatolicos.length > 1);
+
+      ultimoIndice = nuevoIndice;
+      const v = versiculosCatolicos[nuevoIndice];
+
+      document.getElementById("verseText").innerText = `"${v.texto}"`;
+      document.getElementById("verseRef").innerText = `— ${v.cita}`;
+      
+      const tag = document.getElementById("verseCategory");
+      tag.innerText = v.categoria;
+      tag.style.display = "inline-block";
+    }
+
+    // Cargar un versículo automáticamente al abrir la app
+    mostrarNuevoVersiculo();
+  </script>
+
+</body>
+</html>
